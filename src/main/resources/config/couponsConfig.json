@@ -1,0 +1,46 @@
+{
+  "Coupons": [
+    {
+      "CategoryName": "Comforter Sets",
+      "CouponName": "Comforters Sale"
+    },
+    {
+      "CategoryName": "Bedding",
+      "CouponName": "Savings on Bedding"
+    },
+    {
+      "CategoryName": "Bed & Bath",
+      "CouponName": "Low price for Bed & Bath"
+    }
+  ],
+  "Categories": [
+    {
+      "CategoryName": "Comforter Sets",
+      "CategoryParentName": "Bedding"
+    },
+    {
+      "CategoryName": "Bedding",
+      "CategoryParentName": "Bed & Bath"
+    },
+    {
+      "CategoryName": "Bed & Bath",
+      "CategoryParentName": null
+    },
+    {
+      "CategoryName": "Soap Dispensers",
+      "CategoryParentName": "Bathroom Accessories"
+    },
+    {
+      "CategoryName": "Bathroom Accessories",
+      "CategoryParentName": "Bed & Bath"
+    },
+    {
+      "CategoryName": "Toy Organizers",
+      "CategoryParentName": "Baby And Kids"
+    },
+    {
+      "CategoryName": "Baby And Kids",
+      "CategoryParentName": null
+    }
+  ]
+}
