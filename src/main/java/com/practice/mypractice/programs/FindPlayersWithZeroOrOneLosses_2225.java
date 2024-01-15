@@ -38,7 +38,7 @@ public class FindPlayersWithZeroOrOneLosses_2225 {
     }
 
     // Playing with Constraint : [ 1 <= winneri, loseri <= 105 ]
-    public List<List<Integer>> findWinnersOptimized(int[][] matches) {
+    public static List<List<Integer>> findWinnersOptimized(int[][] matches) {
 
         int[] losses = new int[100001];
         for (int i = 0; i < matches.length; i++) {
@@ -68,6 +68,7 @@ public class FindPlayersWithZeroOrOneLosses_2225 {
     }
 
     public static void main(String[] args) {
-
+        int matches[][] = new int[][]{{2, 3}, {1, 3}, {5, 4}, {6, 4}};
+        System.out.println(findWinnersOptimized(matches));
     }
 }
