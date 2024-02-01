@@ -1,8 +1,5 @@
 package com.practice.mypractice.programs;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.practice.mypractice.programs.dto.TreeNode;
 
 public class PseudoPalindromicPathsInBinaryTree {
