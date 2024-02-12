@@ -1,4 +1,4 @@
-package com.practice.mypractice.programs.dto;
+package com.practice.mypractice.programs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,8 +41,45 @@ public class MinimumWindowSubstring {
         return true;
     }
 
+    public String minWindowOptimized(String s, String t) {
+        if (s == null || t == null || s.length() == 0 || t.length() == 0 || s.length() < t.length()) {
+            return "";
+        }
+
+        int[] map = new int[128];
+        int count = t.length(), start = 0, end = 0, startIdx = 0, endIdx = 0, minLen = Integer.MAX_VALUE;
+        for (char ch : t.toCharArray()) {
+            map[ch]++;
+        }
+
+        char[] sArr = s.toCharArray();
+
+        while (end < s.length()) {
+            if (map[sArr[end++]]-- > 0) {
+                count--;
+            }
+            while (count == 0) {
+                if (end - start < minLen) {
+                    minLen = end - start;
+                    startIdx = start;
+                    endIdx = end;
+                }
+                if (map[sArr[start++]]++ == 0) {
+                    count++;
+                }
+            }
+        }
+
+        return (minLen == Integer.MAX_VALUE) ? "" : s.substring(startIdx, endIdx + 1);
+    }
+
+
     public static void main(String[] args) {
         MinimumWindowSubstring obj = new MinimumWindowSubstring();
         System.out.println(obj.minWindow("a", "aa"));
+
+        System.out.println(obj.minWindowOptimized("a", "aa"));
+
+
     }
 }
