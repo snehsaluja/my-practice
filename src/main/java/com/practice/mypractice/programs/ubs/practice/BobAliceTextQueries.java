@@ -1,4 +1,4 @@
-package com.practice.mypractice.programs;
+package com.practice.mypractice.programs.ubs.practice;
 
 import java.util.ArrayList;
 import java.util.HashSet;

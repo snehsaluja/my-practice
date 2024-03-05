@@ -1,4 +1,4 @@
-package com.practice.mypractice.programs;
+package com.practice.mypractice.programs.ubs.practice;
 
 public class EricaBob {
 
