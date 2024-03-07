@@ -6,7 +6,6 @@ import java.util.Map;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-
         Map<Integer, Integer> map = new HashMap<>();
         int n = nums.length;
         for (int i = 0; i < nums.length; i++) {
@@ -18,7 +17,33 @@ public class MajorityElement {
         return 0;
     }
 
-    public static void main(String[] args) {
+    public static int majorityElementOptimized(int[] nums) {
+        /*int major = 0, count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) {
+                major = nums[i];
+            }
 
+            count += (nums[i] == major) ? 1 : -1;
+        }
+        return major;*/
+        int ele = nums[0], count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == ele) {
+                count++;
+            } else {
+                count--;
+                if (count == 0) {
+                    ele = nums[i];
+                    count = 1;
+                }
+            }
+        }
+        return ele;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 2, 1, 2, 2, 1, 2, 2, 1};
+        System.out.println(majorityElementOptimized(arr));
     }
 }
