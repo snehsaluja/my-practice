@@ -1,7 +1,17 @@
 package com.practice.mypractice.programs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public class AddStringsTests {
 
@@ -26,6 +36,18 @@ public class AddStringsTests {
         Assertions.assertEquals("101", playWithStrings.addStrings("2", "99"));
         Assertions.assertEquals("198", playWithStrings.addStrings("99", "99"));
         Assertions.assertEquals("198", playWithStrings.addStrings("99", "99"));
+    }
+
+    @Test
+    public void whenAddCalledRealMethodCalled () {
+        List<Integer> myList = mock(ArrayList.class);
+        doCallRealMethod().when(myList).add(any(Integer.class)) ;
+        myList.add(15);
+        myList.size();
+        verify(myList, times(1)).add(0,15);
+        verify(myList, times(1)).size();
+        Integer result = myList.get(0) ;
+        Assertions.assertEquals(15, result);
     }
 
 }
