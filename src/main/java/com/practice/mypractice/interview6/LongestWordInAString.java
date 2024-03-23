@@ -16,6 +16,8 @@ public class LongestWordInAString {
             return str1.length() - str2.length();
         };
         System.out.println(Arrays.stream(test.split(" ")).max(comp).stream().findFirst().get());
+        // this is better :
+        System.out.println(Arrays.stream(test.split(" ")).max(comp).get());
 
     }
 }
