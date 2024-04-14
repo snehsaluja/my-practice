@@ -6,6 +6,30 @@ import java.util.List;
 public class MultiplyStrings {
 
     public static String multiply(String num1, String num2) {
+        int[] prodArr = new int[num1.length() + num2.length()];
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            int a = num1.charAt(i) - 48, b, prod;
+            int k = i + num2.length();
+            for (int j = num2.length() - 1; j >= 0 && a != 0; j--) {
+                b = num2.charAt(j) - 48;
+                prod = (a * b) + prodArr[k];
+                prodArr[k] = prod % 10;
+                prodArr[k - 1] += prod / 10;
+                k--;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int n : prodArr) {
+            if (n == 0 && sb.length() == 0) {
+                continue;
+            }
+            sb.append(n);
+        }
+        return sb.length() == 0 ? "0" : sb.toString();
+    }
+
+
+    public static String multiplyBadOptimization(String num1, String num2) {
         List<StringBuilder> sbList = new ArrayList<>();
         String longNum, shortNum;
         if (num1.length() > num2.length()) {
@@ -68,6 +92,7 @@ public class MultiplyStrings {
         System.out.println(multiply("123", "456"));
         System.out.println(multiply("0", "456"));
         System.out.println(multiply("123", "0"));
+        System.out.println(multiply("10", "10"));
     }
 }
 

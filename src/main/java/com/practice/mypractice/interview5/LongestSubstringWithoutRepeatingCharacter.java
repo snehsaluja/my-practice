@@ -1,5 +1,8 @@
 package com.practice.mypractice.interview5;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestSubstringWithoutRepeatingCharacter {
 
     // Oracle Interview:
@@ -46,6 +49,29 @@ public class LongestSubstringWithoutRepeatingCharacter {
         }
         return true;
     }
+
+
+    public static String longestSubstring2(String str) {
+        int len = str.length(), max = 0, start = 0, startIndex = 0, endIndex = 0;
+        Map<Character, Integer> freqMap = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            char ch = str.charAt(i);
+            freqMap.put(ch, freqMap.getOrDefault(ch, 0) + 1);
+            while (freqMap.get(ch) > 1) {
+                char startCh = str.charAt(start);
+                freqMap.put(startCh, freqMap.get(startCh) - 1);
+                start++;
+            }
+            if (i - start + 1 > max) {
+                max = i - start + 1;
+                startIndex = start;
+                endIndex = i;
+            }
+
+        }
+        return str.substring(startIndex, endIndex + 1);
+    }
+
 
     public static void main(String[] args) {
         System.out.println(longestSubstring("abcdefde"));
