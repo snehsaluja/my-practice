@@ -20,7 +20,7 @@ public class Max4DigitNumberInMatrix {
 
     private int findMaxPath(int[][] board, int startRow, int startCol) {
         boolean[][] visited = new boolean[board.length][board[0].length];
-        return dfs(board, startRow, startCol, 1, ""+board[startRow][startCol], visited);
+        return dfs(board, startRow, startCol, 1, "" + board[startRow][startCol], visited);
     }
 
     private int dfs(int[][] board, int row, int col, int depth, String path, boolean[][] visited) {
@@ -62,6 +62,44 @@ public class Max4DigitNumberInMatrix {
 
         visited[row][col] = false;
         return maxNumber;
+    }
+
+    public int solution2(int[][] board) {
+        int n = board.length;
+        int m = board[0].length;
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                boolean[][] visited = new boolean[board.length][board[0].length];
+                maxVal = Math.max(maxVal, callDFS(board, i, j, visited, ""));
+            }
+        }
+
+        return maxVal;
+    }
+
+    private int callDFS(int[][] board, int i, int j, boolean[][] visited, String str) {
+        if (str.length() == 4) {
+            return Integer.parseInt(str);
+        }
+        visited[i][j] = true;
+        str = str + board[i][j];
+        int max = Integer.MIN_VALUE;
+
+        if (i > 0 && !visited[i - 1][j]) {
+            max = Math.max(max, callDFS(board, i - 1, j, visited, str));
+        }
+        if (j > 0 && !visited[i][j - 1]) {
+            max = Math.max(max, callDFS(board, i, j - 1, visited, str));
+        }
+        if (i < board.length - 1 && !visited[i + 1][j]) {
+            max = Math.max(max, callDFS(board, i + 1, j, visited, str));
+        }
+        if (j < board[i].length - 1 && !visited[i][j + 1]) {
+            max = Math.max(max, callDFS(board, i, j + 1, visited, str));
+        }
+        visited[i][j] = false;
+        return max;
     }
 
     public static void main(String[] args) {
@@ -112,7 +150,6 @@ public class Max4DigitNumberInMatrix {
     }
 
     private void testMySolution(int[][] board) {
-        System.out.println(solution(board));
-
+        System.out.println(solution2(board));
     }
 }
