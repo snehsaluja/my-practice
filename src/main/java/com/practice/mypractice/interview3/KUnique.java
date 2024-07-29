@@ -59,10 +59,10 @@ public class KUnique {
     }
 
     public static void main(String[] args) {
-        System.out.print(KUniqueCharacters("2aabbacbaa"));
-        System.out.print(KUniqueCharacters("3abacbebebe"));
-        System.out.print(KUniqueCharacters("2aeczbbcbbb"));
-        System.out.print(KUniqueCharacters("1a"));
+        System.out.println(KUniqueCharacters("2aabbacbaa"));
+        System.out.println(KUniqueCharacters("3abacbebebe"));
+        System.out.println(KUniqueCharacters("2aeczbbcbbb"));
+        System.out.println(KUniqueCharacters("1a"));
 
     }
 
