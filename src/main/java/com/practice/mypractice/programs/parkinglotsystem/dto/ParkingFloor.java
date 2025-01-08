@@ -9,15 +9,18 @@ import java.util.Queue;
 public class ParkingFloor {
 
     String floorId;
-    List<Spot> spots;
+    Map<String, Spot> spots;
+    Map<VehicleType, List<Spot>> availableSpots;
+    Map<VehicleType, List<Spot>> occupiedSpots;
 
-    Queue<Spot> availableSpots;
-    Queue<Spot> occupiedSpots;
+    // List<Spot> spots;
+    // Queue<Spot> availableSpots;
+    // Queue<Spot> occupiedSpots;
 
+    // Map<VehicleType, Integer> floorCapacity;
     /*
     int availableSmallSpots;
     int availableMediumSpots;
     int availableBigSpots;*/
-    Map<VehicleType, Integer> floorCapacity;
 
 }

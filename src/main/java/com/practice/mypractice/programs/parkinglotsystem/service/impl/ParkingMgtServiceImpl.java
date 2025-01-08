@@ -37,7 +37,7 @@ public class ParkingMgtServiceImpl implements ParkingMgtService {
 
     // Should be called from Controller Layer:::::
     public Map<String, Map<VehicleType, Integer>> getAvailableCapacity() {
-        return parkingLot.getAvailableCapacity();
+        return parkingLot.getFloorAvailableCapacity();
     }
 
 }

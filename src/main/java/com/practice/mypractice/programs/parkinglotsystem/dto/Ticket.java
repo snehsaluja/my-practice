@@ -10,6 +10,7 @@ public class Ticket {
 
     String ticketId;
     Spot spot;
+    Vehicle vehicle;
     LocalDateTime startTime;
     TicketStatus status;
 }

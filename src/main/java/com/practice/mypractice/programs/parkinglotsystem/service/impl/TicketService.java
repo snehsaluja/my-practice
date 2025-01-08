@@ -8,7 +8,10 @@ import java.time.LocalDateTime;
 
 public class TicketService {
 
-    public Ticket generateTicket(Spot spot, String vehicleNo, VehicleType type, LocalDateTime now) {
+    public Ticket generateTicket(Spot spot,
+                                 String vehicleNo,
+                                 VehicleType type,
+                                 LocalDateTime now) {
         return new Ticket();
     }
 
