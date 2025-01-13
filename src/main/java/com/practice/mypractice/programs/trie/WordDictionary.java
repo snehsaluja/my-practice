@@ -38,7 +38,7 @@ public class WordDictionary {
         if (ch == '.') {
             boolean dotFlag = false;
             TrieNode temp = curr;
-            for (char dotChar : curr.children.keySet()){
+            for (char dotChar : curr.children.keySet()) {
                 temp = curr.children.get(dotChar);
                 dotFlag = dotFlag || search(word, index + 1, temp);
             }
@@ -57,9 +57,9 @@ public class WordDictionary {
         wordDictionary.addWord("bad");
         wordDictionary.addWord("dad");
         wordDictionary.addWord("mad");
-        wordDictionary.search("pad"); // return False
-        wordDictionary.search("bad"); // return True
-        wordDictionary.search(".ad"); // return True
-        wordDictionary.search("b.."); // return True
+        System.out.println(wordDictionary.search("pad")); // return False
+        System.out.println(wordDictionary.search("bad")); // return True
+        System.out.println(wordDictionary.search(".ad")); // return True
+        System.out.println(wordDictionary.search("b..")); // return True
     }
 }
