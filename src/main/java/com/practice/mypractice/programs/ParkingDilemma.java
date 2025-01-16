@@ -18,6 +18,7 @@ public class ParkingDilemma {
     }
 
     public static void main(String[] args) {
+        testMinRoofSize(Arrays.asList(2, 9, 15, 17), 2, 3);
         testMinRoofSize(Arrays.asList(2, 10, 8, 17), 3, 9);
         testMinRoofSize(Arrays.asList(18, 12, 31, 14, 4, 26, 22), 3, 7);
         testMinRoofSize(Arrays.asList(80007335, 9987764, 50438796, 32357166, 65477350, 84234476, 15537468, 46875662, 23516720, 38997410, 57843356, 92557746, 73569987, 29476884), 4, 15480691);
