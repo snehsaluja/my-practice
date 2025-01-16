@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class EvaluateDivision2ndAttempt {
 
-    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+    public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         double[] answer = new double[queries.size()];
 
         int n = equations.size();
@@ -31,7 +31,7 @@ public class EvaluateDivision2ndAttempt {
         return answer;
     }
 
-    private void dfs(String source, String destination, Map<String, Map<String, Double>> adjList, Set<String> visited, double[] ans, double temp) {
+    private static void dfs(String source, String destination, Map<String, Map<String, Double>> adjList, Set<String> visited, double[] ans, double temp) {
         if (visited.contains(source)) {
             return;
         }
